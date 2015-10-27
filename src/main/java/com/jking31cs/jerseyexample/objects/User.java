@@ -4,6 +4,9 @@ import com.google.common.base.Objects;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Contains basic information about a User, specifically a name and email address.
  */
@@ -16,14 +19,21 @@ public class User {
     private String name;
     private String email;
 
+    @JsonCreator
     public User(
-        Long id,
-        String name,
-        String email
+        @JsonProperty("id") Long id,
+        @JsonProperty("name") String name,
+        @JsonProperty("email") String email
     ) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    private User() {
+        this.id = null;
+        this.name = null;
+        this.email = null;
     }
 
     public Long getId() {

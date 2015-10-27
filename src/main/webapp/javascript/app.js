@@ -6,7 +6,6 @@
         'ngResource',
         'ui.router'
     ]);
-
     app.factory('TodoList', ['$resource', function ($resource) {
         return $resource('/api/todo-lists/:id', {id: '@id'}, {
             'update': { method : 'PUT'}

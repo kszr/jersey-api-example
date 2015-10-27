@@ -30,6 +30,10 @@ public class TodoList {
         this.items = items;
     }
 
+    private TodoList() {
+        
+    }
+
     public Long getId() {
         return id;
     }
